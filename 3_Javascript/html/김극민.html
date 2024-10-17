@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김극민</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+
+        #box {
+            width: 200px;
+            height: 400px;
+            background-color: yellow;
+            text-align: center;
+            line-height: 400px;
+            font-size: 20px;
+            color: red;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="width">너비:</label>
+        <input type="number" id="width" value="200"> px<br>
+
+        <label for="height">높이:</label>
+        <input type="number" id="height" value="400"> px<br>
+
+        <label for="fontSize">글자크기:</label>
+        <input type="number" id="fontSize" value="20"> px<br>
+
+        <label for="fontWeight">굵기:</label>
+        <input type="radio" id="normal" name="fontWeight" value="normal" checked> 보통
+        <input type="radio" id="bold" name="fontWeight" value="bold"> 굵게<br>
+
+        <label for="fontColor">글자색:</label>
+        <input type="text" id="fontColor" value="red"><br>
+
+        <label for="bgColor">배경색:</label>
+        <input type="text" id="bgColor" value="yellow"><br>
+
+        <label for="textAlign">가로정렬:</label>
+        <input type="radio" id="left" name="textAlign" value="left"> 왼쪽
+        <input type="radio" id="center" name="textAlign" value="center" checked> 가운데
+        <input type="radio" id="right" name="textAlign" value="right"> 오른쪽<br>
+
+        <label for="verticalAlign">세로정렬:</label>
+        <input type="radio" id="top" name="verticalAlign" value="top"> 위
+        <input type="radio" id="middle" name="verticalAlign" value="middle" checked> 가운데
+        <input type="radio" id="bottom" name="verticalAlign" value="bottom"> 아래<br>
+
+        <label for="text">출력 문자열:</label>
+        <input type="text" id="text" value="Hello World!"><br><br>
+
+        <button onclick="applySettings()">적용하기</button>
+    </div>
+    <br>
+    <div id="box">Hello World!</div>
+
+    <script>
+        function applySettings() {
+            const box = document.getElementById('box');
+
+            const width = document.getElementById('width').value;
+            const height = document.getElementById('height').value;
+            const fontSize = document.getElementById('fontSize').value;
+            const fontWeight = document.querySelector('input[name="fontWeight"]:checked').value;
+            const fontColor = document.getElementById('fontColor').value;
+            const bgColor = document.getElementById('bgColor').value;
+            const textAlign = document.querySelector('input[name="textAlign"]:checked').value;
+            const verticalAlign = document.querySelector('input[name="verticalAlign"]:checked').value;
+            const text = document.getElementById('text').value;
+
+            box.style.width = width + 'px';
+            box.style.height = height + 'px';
+            box.style.fontSize = fontSize + 'px';
+            box.style.fontWeight = fontWeight;
+            box.style.color = fontColor;
+            box.style.backgroundColor = bgColor;
+            box.style.textAlign = textAlign;
+            box.style.verticalAlign = verticalAlign;
+
+
+            if (verticalAlign == 'top') {
+                box.style.lineHeight = 'normal';
+                box.style.display = 'flex';
+                box.style.alignItems = 'baseline';
+            } else if (verticalAlign == 'middle') {
+                box.style.lineHeight = height + 'px';
+                box.style.display = 'block';
+                box.style.alignItems = 'center';
+            } else{
+                box.style.lineHeight = 'normal';
+                box.style.display = 'flex';
+                box.style.alignItems = 'end';
+
+            }
+
+            if (textAlign == 'left') {
+                box.style.lineHeight = 'normal';
+                box.style.display = 'flex';
+                box.style.justifyContent = 'left';
+            } else if (textAlign == 'center') {
+                box.style.display = 'flex';
+                box.style.justifyContent = 'center';
+            } else{
+                box.style.lineHeight = 'normal';
+                box.style.display = 'flex';
+                box.style.justifyContent = 'end';
+            }
+
+            box.innerText = text;
+        }
+    </script>
+</body>
+</html>

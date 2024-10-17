@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04_연산자2</title>
+</head>
+<body>
+  <h1>비교연산자</h1>
+  <pre>
+    - 좌변과 우변을
+    같다(==), 같지 않다(!=)
+    초과( > ), 미만 <!-- < -->
+    이상(>=), 이하<!-- <= -->
+    비교해서
+    맞을 경우 true 틀리면 false를 반환하는 연산자
+    (연산 결과로 boolean(논리값) 반환)
+
+    - 복합 기호를 사용할 때 등호(=)는 무조건 오른쪽에 작성
+  </pre>
+
+  <hr>
+
+  <h3>입력된 두 수가 같은지 확인</h3>
+  <div>
+    1번 : <input type="text" id="compareValue1"> <br>
+    2번 : <input type="text" id="compareValue2"> 
+
+    <button id="btn1" onclick="compareFn()">비교</button>
+    <span id="result1"></span>
+  </div>
+
+  <hr>
+  <h3>좌변에 입력한 수가 우변의 입력한 수보다 큰지 확인</h3>
+
+
+
+
+  <div>
+    <label for="compareValue3">3번</label>
+    <input type="text" id="compareValue3"> <br>
+
+
+
+
+    <label for="compareValue4">4번</label>
+    <input type="text" id="compareValue4"> <br>
+
+
+
+
+    <button onclick="compareFn2()">비교</button>
+    <span id="result2"></span>
+  </div>
+
+
+
+
+
+
+
+
+
+  <hr>
+
+
+  <h3>증가/감소 연산자(++, --)</h3>
+  <pre>
+      - 1씩 값을 증가/감소 시키는 연산자
+      - 합쳐서 "증감 연산자" 라고 부르기도 함
+
+
+      * 전위 연산 (제일 먼저 1 증가/감소 시키기) ->  ++변수명, --변수명
+      * 후위 연산 (제일 나중에 1 증가/감소 시키기) -> 변수명++, 변수명--
+    </pre>
+
+
+  
+
+
+  <script src="../js/04_연산자2.js"></script>
+</body>
+</html>

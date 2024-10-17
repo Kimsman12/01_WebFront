@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI구현보충</title>
+
+</head>
+<body>
+<div>  
+  <table>
+  <tr>
+    <th>너비 :
+    <input type="number" min="1" max="1000" id="box-width">
+  </th>
+  <th>높이 :
+    <input type="number" min="1" max="1000" id="box-height">
+  </th>
+  <th>글자크기 :
+    <input type="number" min="1" max="1000" id="font-size">
+  </th>
+  <td colspan="2">
+  <th>굵기 :
+    <label><input type="radio" name="font-bold" value="null">보통</label>
+    <label><input type="radio" name="font-bold" value="bold">굵게</label>
+  </th>
+</td>
+</tr>
+<tr>
+  <td colspan="3">
+  <th>가로정렬 :
+  <label>왼쪽 <input type="radio" name="aligh-row" value="flex-start"> </label>
+  <label>가운데 <input type="radio" name="aligh-row" value="center"></label>
+  <label>오른쪽 <input type="radio" name="aligh-row" value="flex-end"></label>
+  </th>
+</td>
+</tr>
+
+
+<tr>
+<td colspan="3">
+<th>세로정렬 :
+  <label>위 <input type="radio" name="aligh-col" value="flex-start"> </label>
+  <label>가운데 <input type="radio" name="aligh-col" value="center"></label>
+  <label>아래 <input type="radio" name="aligh-col" value="flex-end"></label>
+</td>
+</th>
+
+</tr>
+
+
+</table>
+
+<button id="apply-btn">적용하기</button>
+
+<div id="box"></div>
+
+</div>
+
+<script>
+  // 적용하기 버튼이 클릭되었을때
+  const applybtn = document.querySelector("#apply-btn");
+
+  applybtn.addEventListener("click", ()=>{
+  // 위에 작성된 input요소들을 모두 얻어와서
+  const boxWidth = document.querySelector("#box-width"); // 너비
+  const boxHeight = document.querySelector("#box-height"); // 높이
+  const bold = document.querySelector("[name=font-bold]:checked"); // 굵기
+
+  const row = document.querySelector("[name='aligh-row']:checked"); // 가로정렬
+  const col = document.querySelector("[name='aligh-col']:checked"); // 세로정렬
+
+  const content = document.querySelector("#content");
+
+ 
+  // 결과로 쓰일 box 얻어오기
+  const box = document.querySelector("#box");
+  // input 요소의 value값에 접근해서
+  // value값들을 div#box 적용시켜주면된다
+  box.style.width = boxWidth.value + "px";
+  box.style.height = boxHeight.value + "px";
+
+  box.style.justifyContent = row.value;
+  // box 라는 id를 가진 div요소에 css 스타일중 메인축 정렬을 해주는
+  // justifyContent : 체크한부분이 적용됨
+  // input태그에 작성한 value값에 의한것
+
+  box.style.alighItems = col.value;
+  // box 라는 id를 가진 div요소에 css 스타일중 반대축 정렬을 해주는
+  // alignItems : 체크한부분이 적용됨
+  // input태그에 작성한 value값에 의한것
+
+  box.innerText = content.value;
+
+
+
+  });
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
